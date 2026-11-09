@@ -1,0 +1,51 @@
+{
+  "demo": true,
+  "slug": "summit-demo",
+  "businessName": "Summit Home Services",
+  "trade": "Heating and air conditioning",
+  "tradeShort": "HVAC",
+  "tagline": "Heating and cooling repair, maintenance and installation.",
+  "phone": "(828) 555-0142",
+  "email": "",
+  "city": "Hickory",
+  "state": "NC",
+  "serviceArea": [
+    "Hickory",
+    "Newton",
+    "Conover",
+    "Lenoir",
+    "Morganton"
+  ],
+  "hours": "Mon–Fri 7am–6pm · Sat 8am–noon",
+  "services": [
+    {
+      "name": "AC repair",
+      "text": "Fast diagnosis and repair when your system stops cooling."
+    },
+    {
+      "name": "Furnace and heat pump repair",
+      "text": "Get the heat back on with clear pricing before work starts."
+    },
+    {
+      "name": "Seasonal maintenance",
+      "text": "Spring and fall tune-ups that catch problems early."
+    },
+    {
+      "name": "System replacement",
+      "text": "Straight answers on repair versus replace, and a written quote."
+    }
+  ],
+  "facts": [
+    "Family owned",
+    "Licensed in North Carolina",
+    "Written quotes before any work"
+  ],
+  "brandColor": "#0B5D7A",
+  "domain": "",
+  "ga4MeasurementId": "",
+  "leadFormEmbedUrl": "",
+  "googleReviewUrl": "https://g.page/r/EXAMPLE-DEMO/review",
+  "articleTopicsCovered": [],
+  "competitorNames": [],
+  "basePath": "/bbs-client-summit-demo"
+}

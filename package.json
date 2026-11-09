@@ -1,0 +1,15 @@
+{
+  "name": "bbs-client-site",
+  "private": true,
+  "type": "module",
+  "description": "Business Bottleneck Solutions Visibility client site: static pages generated from client.json and content/articles.",
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node check-content.mjs",
+    "review-kit": "node review-kit.mjs",
+    "test": "node --test tests/"
+  },
+  "devDependencies": {
+    "qrcode": "1.5.4"
+  }
+}
