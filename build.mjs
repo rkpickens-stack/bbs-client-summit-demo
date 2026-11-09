@@ -84,7 +84,7 @@ function page({ title, description, path, body, noindex, schema }) {
 <title>${esc(title)}</title><meta name="description" content="${esc(description)}">${canonical}
 <meta name="robots" content="${noindex || client.demo ? 'noindex,nofollow' : 'index,follow'}">
 <meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}">
-<link rel="stylesheet" href="/styles.css">${schema ? `<script type="application/ld+json">${JSON.stringify(schema)}</script>` : ''}${ga}
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css">${schema ? `<script type="application/ld+json">${JSON.stringify(schema)}</script>` : ''}${ga}
 </head><body>
 ${client.demo ? '<div class="demo">Demo site for a fictional business · not a real company</div>' : ''}
 <header><div class="wrap"><a class="brand" href="/">${esc(client.businessName)}<small>${esc(client.trade)} · ${esc(client.city)}, ${esc(client.state)}</small></a>
@@ -146,7 +146,9 @@ export async function build() {
   const files = { 'index.html': home(articles), 'articles/index.html': articleIndex(articles), 'privacy/index.html': privacy(), 'styles.css': css,
     '404.html': page({ title: `Page not found | ${client.businessName}`, description: 'Page not found.', path: '/404', noindex: true, body: `<main class="wrap" style="padding:60px 20px"><h1>Page not found</h1><p><a href="/">Go to the home page</a> or call <a href="${telHref(client.phone)}">${esc(client.phone)}</a>.</p></main>` }),
     'robots.txt': client.demo ? 'User-agent: *\nDisallow: /\n' : `User-agent: *\nAllow: /\n${origin ? `Sitemap: ${origin}/sitemap.xml\n` : ''}`,
-    '.nojekyll': '' }
+    '.nojekyll': '',
+    // Initial-letter favicon in the brand colour until the client supplies a logo.
+    'favicon.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="${client.brandColor || '#0B5D7A'}"/><text x="32" y="44" font-family="system-ui,sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#fff">${esc(client.businessName.trim()[0] || 'B')}</text></svg>` }
   for (const a of articles) files[`articles/${a.slug}/index.html`] = articlePage(a)
   if (origin) {
     files['sitemap.xml'] = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${['/', '/articles/', ...articles.map((a) => `/articles/${a.slug}/`)].map((p) => `  <url><loc>${origin}${p}</loc></url>`).join('\n')}\n</urlset>\n`
