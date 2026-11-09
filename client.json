@@ -45,7 +45,10 @@
   "ga4MeasurementId": "",
   "leadFormEmbedUrl": "",
   "googleReviewUrl": "https://g.page/r/EXAMPLE-DEMO/review",
-  "articleTopicsCovered": [],
+  "articleTopicsCovered": [
+    "furnace-not-heating-checks",
+    "heat-pump-winter-questions"
+  ],
   "competitorNames": [],
   "basePath": "/bbs-client-summit-demo"
 }
